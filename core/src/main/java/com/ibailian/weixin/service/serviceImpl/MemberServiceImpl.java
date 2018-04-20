@@ -54,21 +54,8 @@ public class MemberServiceImpl implements IMemberService {
             String sign = BailianBuildSign.getSign(param);
             param.put(MemberLoginApiConstans.FILED_INPUT_SIGN, sign);
             logger.info("会员token验证，url={},params={}", url, JsonUtils.object2JsonString(param));
-//            Map<String,Object> map = this.restTemplate.postForObject(url, param, Map.class);
             dto = this.restTemplate.postForObject(url, param, ReturnDTO.class);
             logger.info("会员token验证，result={}", JsonUtils.object2JsonString(dto));
-            /*if(CommonUtils.isExist(map)){
-                String resCode = map.get(ApiCommonConstans.FILED_RETURN_RESCODE) == null ? "" : map.get(ApiCommonConstans.FILED_RETURN_RESCODE).toString();
-                if(StringUtils.isNotBlank(resCode) && StringUtils.equals(ApiCommonConstans.VALUE_RETURN_SUCCESS_RES_CODE,resCode)){
-                    dto.setSuccess(true);
-                    dto.setResCode(resCode);
-                    dto.setObj(map.get(ApiCommonConstans.FILED_RETURN_OBJ));
-                }else{
-                    String msg = map.get(ApiCommonConstans.FILED_RETURN_MSG) == null ? "" : map.get(ApiCommonConstans.FILED_RETURN_MSG).toString();
-                    dto.setMsg(msg);
-                    dto.setResCode(resCode);
-                }
-            }*/
         }
         logger.info("会员token校验业务完成,总耗时[" + (System.currentTimeMillis() - beginTime) + "]毫秒");
         return dto;
