@@ -1,0 +1,9 @@
+server:
+  port:  9060
+
+#会员中台远程API
+memberRootApi: http://10.201.128.125:7080/member
+
+defaultCoustom:
+  #会员接口
+  memberLoginPath: ${memberRootApi}/baseinfo/jn/login.htm

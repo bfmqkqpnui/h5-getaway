@@ -1,0 +1,9 @@
+server:
+  port: 24080
+
+#会员中台远程API
+memberRootApi: http://memservice.ut.bl.com:7080/member
+
+defaultCoustom:
+  #会员接口
+  memberLoginPath: ${memberRootApi}/baseinfo/jn/login.htm

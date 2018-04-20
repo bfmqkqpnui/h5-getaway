@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api" />
+        <module name="common" />
+        <module name="core" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="api" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="core" target="1.8" />
+      <module name="h5-getaway" target="1.8" />
+      <module name="h5-getaway_v1.0" target="1.8" />
+      <module name="root-v1.0" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

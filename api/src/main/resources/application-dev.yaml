@@ -1,0 +1,22 @@
+server:
+  port:  8088
+
+spring:
+  #redis的配置信息dev环境
+  redis:
+    host: 10.201.128.132
+    port: 6379
+    password: redis
+    pool:
+      max-active: 200
+      max-idle: 50
+      max-wait: 5000
+
+#会员中台远程API
+memberRootApi: http://10.201.128.125:7080/member
+
+defaultCoustom:
+  #会员登录接口
+  memberLoginPath: ${memberRootApi}/baseinfo/jn/login.htm
+  #会员信息查询-token
+  queryBaseInfo: ${memberRootApi}/baseinfo/jn/queryBaseInfo.htm
