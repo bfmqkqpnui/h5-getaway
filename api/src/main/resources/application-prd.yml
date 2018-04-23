@@ -3,7 +3,3 @@ server:
 
 #会员中台远程API
 memberRootApi: http://10.201.32.153:7080/member
-
-defaultCoustom:
-  #会员接口
-  memberLoginPath: ${memberRootApi}/baseinfo/jn/login.htm

@@ -14,9 +14,3 @@ spring:
 
 #会员中台远程API
 memberRootApi: http://10.201.128.125:7080/member
-
-defaultCoustom:
-  #会员登录接口
-  memberLoginPath: ${memberRootApi}/baseinfo/jn/login.htm
-  #会员信息查询-token
-  queryBaseInfo: ${memberRootApi}/baseinfo/jn/queryBaseInfo.htm
