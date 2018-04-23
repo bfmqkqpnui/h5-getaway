@@ -5,3 +5,5 @@ spring:
 defaultCoustom:
   #会员接口
   memberLoginPath: ${memberRootApi}/baseinfo/jn/login.htm
+  #会员信息查询-token
+  queryBaseInfo: ${memberRootApi}/baseinfo/jn/queryBaseInfo.htm
