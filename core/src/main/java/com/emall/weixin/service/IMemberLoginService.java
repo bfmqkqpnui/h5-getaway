@@ -1,9 +1,5 @@
 package com.emall.weixin.service;
 
-import com.emall.weixin.common.vo.ReturnDTO;
-
-import java.util.Map;
-
 /**
  * @ClassName IMemberLoginService
  * @Description TODO 会员登录
@@ -12,5 +8,4 @@ import java.util.Map;
  * @Version v1.0
  */
 public interface IMemberLoginService {
-    ReturnDTO login(Map<String, Object> params);
 }

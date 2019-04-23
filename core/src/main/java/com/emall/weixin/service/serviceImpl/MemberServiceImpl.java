@@ -34,27 +34,4 @@ public class MemberServiceImpl implements IMemberService {
     @Autowired
     private ApiBuildPath apiBuildPath;
 
-    @Override
-    public ReturnDTO queryMemberInfo(String member_token) {
-        logger.info("会员token校验业务开始");
-        long beginTime = System.currentTimeMillis();
-        ReturnDTO dto = new ReturnDTO();
-        dto.setSuccess(false);
-        if (StringUtils.isNotBlank(member_token)) {
-            String url = apiBuildPath.getQueryBaseInfo();
-            Map<String, String> param = new ConcurrentHashMap<String, String>();
-            param.put(MemberLoginApiConstans.FILED_INPUT_MEMBER_TOKEN, member_token);
-            param.put(MemberLoginApiConstans.FILED_INPUT_SYSID, MemberLoginApiConstans.VALUE_INPUT_SYSID);
-            String timestamp = DateUtils.formatDate2Str(DateUtils.DATE_TIME_PATTON_3);
-            param.put(MemberLoginApiConstans.FILED_INPUT_TIMESTAMP, timestamp);
-
-            String sign = BailianBuildSign.getSign(param);
-            param.put(MemberLoginApiConstans.FILED_INPUT_SIGN, sign);
-            logger.info("会员token验证，url={},params={}", url, JsonUtils.object2JsonString(param));
-            dto = this.restTemplate.postForObject(url, param, ReturnDTO.class);
-            logger.info("会员token验证，result={}", JsonUtils.object2JsonString(dto));
-        }
-        logger.info("会员token校验业务完成,总耗时[" + (System.currentTimeMillis() - beginTime) + "]毫秒");
-        return dto;
-    }
 }

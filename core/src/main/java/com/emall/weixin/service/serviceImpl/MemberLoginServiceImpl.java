@@ -33,27 +33,4 @@ public class MemberLoginServiceImpl implements IMemberLoginService {
     @Autowired
     private ApiBuildPath api;
 
-    /*
-    * @Title: login
-    * @Description 用户登录业务实现
-    * @Author 陆逸飞
-    * @Date 2018-04-18 16:50
-    * @Param [params]
-    * @Return ReturnDTO
-    */
-    @Override
-    public ReturnDTO login(Map<String, Object> params) {
-        ReturnDTO dto = new ReturnDTO();
-        dto.setSuccess(false);
-        if (CommonUtils.isExist(params)) {
-            String path = api.getMemberLoginPath();
-            logger.info("会员登录，url={},params={}", path, JsonUtils.object2JsonString(params));
-            dto = this.restTemplate.postForObject(api.getMemberLoginPath(), params, ReturnDTO.class);
-            logger.info("会员登录，result={}", JsonUtils.object2JsonString(dto.getObj()));
-            if (StringUtils.isNotBlank(dto.getResCode()) && StringUtils.equals(ApiCommonConstans.VALUE_RETURN_SUCCESS_RES_CODE, dto.getResCode())) {
-                dto.setSuccess(true);
-            }
-        }
-        return dto;
-    }
 }
